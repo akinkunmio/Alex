@@ -1,0 +1,288 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="Alex.pages.master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="iQ is a suite of integrated education management applications that facilitates the management of your school." />
+      
+    <link rel="shortcut icon" href="../images/favicon.png" />
+    <title>iQ</title>
+
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+
+    <link href="../scripts/css/animate.css" rel="stylesheet" />
+    <link href="../scripts/css/style.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function TbSearch_ClientClicked() {
+            var theButton = document.getElementById('<%=ButtonSearch.ClientID%>');
+            theButton.style.display = 'block';
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div id="wrapper">
+
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <asp:Image ID="imgSchool" runat="server" length="100px" Width="100px" AlternateText="Image" />
+                                
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear">
+                                        <span class="block m-t-xs">
+                                            <strong class="font-bold">
+                                                <asp:Label ID="LblLoginUserName1" runat="server"></asp:Label>
+                                            </strong>
+                                        </span>
+                                        <span class="text-muted text-xs block">
+                                            <asp:Label ID="lblSchoolName" runat="server"></asp:Label>
+                                            <b class="caret"></b>
+                                        </span>
+                                    </span></a>
+                             
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="<%= Page.ResolveUrl("~/pages/admin/reset_password.aspx") %>">Reset/update Password</a></li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">
+                                iQ
+                            </div>
+                        </li>
+                          <li id="DashboardPage" runat="server" visible="false">
+                            <a href="<%= Page.ResolveUrl("~/pages/dashboard.aspx") %>"><i class="fa fa-th-large"></i><span class="nav-label">Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="<%= Page.ResolveUrl("~/pages/students.aspx") %>"><i class="fa fa-user"></i><span class="nav-label">Students</span> </a>
+
+                        </li>
+                        <li id="PeoplesPage" runat="server" visible="false">
+                            <a href="<%= Page.ResolveUrl("~/pages/people.aspx") %>"><i class="fa fa-user-plus"></i><span class="nav-label">Profiles</span> </a>
+
+                        </li>
+                       <li id="AddmissionPage" runat="server" visible="false">
+                            <a href="#"><i class="fa fa-file-o"></i><span class="nav-label">Admissions</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/list_of_applications.aspx") %>">List of Applicants</a></li>
+                               <%-- <li><a href="<%= Page.ResolveUrl("~/pages/add_new_applicant.aspx") %>">Add New Application</a></li>--%>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/process_applications.aspx") %>">Process Applications</a></li>
+                            </ul>
+                        </li>
+
+                          <li id="RegistrationPage" runat="server" visible="false">
+                            <a href="#"><i class="fa fa-users"></i><span class="nav-label">Registrations</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/list_of_students.aspx") %>">List of Registrations</a></li>
+                                <%--<li><a href="<%= Page.ResolveUrl("~/pages/add_new_student.aspx") %>">Register Student</a></li>--%>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/batch_registrations.aspx") %>">Batch Registration by Class</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/batch_registrations_term.aspx") %>">Batch Registration by Term</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li id="PaymentsPage" runat="server" visible="false">
+                            <a href="#"><i class="fa fa-credit-card"></i><span class="nav-label">Accounts</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li id="PaymentsBatch" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~/pages/batch_fee_payments.aspx") %>">Make Batch Payments</a></li>
+                                <li id="PaymentsFee" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~/pages/payments.aspx") %>">List of Tuition Fee Payments</a></li>
+                                <li id="PaymentsItem" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~/pages/payments_items.aspx") %>">List of Sold Items Payments</a></li>
+                                <li id="PaymentsVerify" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~/pages/verify_payments.aspx") %>">Verify Payments</a></li>
+                                <li id="PaymentsExpenses" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~/pages/expenses.aspx") %>">Expenses</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="<%= Page.ResolveUrl("~/pages/attendance.aspx") %>"><i class="fa fa-calendar"></i><span class="nav-label">Attendance</span> </a>
+
+                        </li>
+                        <li id="AssesmentsPage" runat="server" visible="false">
+                            <%--<a href="<%= Page.ResolveUrl("~/pages/assessments.aspx") %>"><i class="fa fa-pencil-square-o"></i><span class="nav-label">Assessments</span> </a>--%>
+                            <a href="#"><i class="fa fa-pencil-square-o"></i><span class="nav-label">Assessments</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/assessments.aspx") %>">Academic</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/non_academic_assessments.aspx") %>">Non-Academic</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/assessments_nursery.aspx") %>">Nursery</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/broadsheet.aspx") %>">Broad Sheet</a></li>
+                            </ul>
+                       </li>
+
+
+                        <li>
+                            <a href="<%= Page.ResolveUrl("~/pages/fees.aspx") %>"><i class="fa fa-money"></i><span class="nav-label">Fees</span> </a>
+                        </li>
+
+                        <li id="employeePage" runat="server" visible="false">
+                           <%-- <a href="<%= Page.ResolveUrl("~/pages/employees.aspx") %>"><i class="fa fa-user-times"></i><span class="nav-label">Employees</span> </a>--%>
+                            <a href="#"><i class="fa fa-user-times"></i><span class="nav-label">Employees</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/employees.aspx") %>">Employees List</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/employees_appraisal.aspx") %>">Employees Appraisal</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li id="hrPage" runat="server" visible="false">
+                            <a href="#"><i class="fa fa-bars"></i><span class="nav-label">HR & Payroll</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/employee_pay_info.aspx") %>">HR & Payroll <%--Joe 190118 1719  Type 1--%>
+
+                                    </a></li>
+                                <%-- Joe 190118 1719 <li><a href="<%= Page.ResolveUrl("~/pages/employees_pay_info_2.aspx") %>">HR & Payroll Type 2</a></li>--%>
+                            </ul>
+                            
+
+                        </li>
+
+                         <li id="ReportsPage" runat="server" visible="false">
+                            <a href="<%= Page.ResolveUrl("~/pages/reports.aspx") %>"><i class="fa fa-picture-o"></i><span class="nav-label">Reports</span> </a>
+                         </li>
+                        <li id="SmsPage" runat="server" visible="false">
+                            <a href="#"><i class="fa fa-comment"></i><span class="nav-label">SMS</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/pages/send_sms.aspx") %>">Send SMS</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/sms_history.aspx") %>">SMS History</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/pages/manage_sms.aspx") %>">Manage SMS</a></li>
+                           </ul>
+                        </li>
+                        <li id="SettingsPage" runat="server" visible="false">
+                            <a href="<%= Page.ResolveUrl("~/pages/settings.aspx") %>"><i class="fa fa-cogs"></i><span class="nav-label">Settings</span> </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                            <div role="search" class="navbar-form-custom">
+                                <div class="form-group">
+                                    <asp:TextBox placeholder="Search for profile" class="form-control" name="top-search" onClientclick="TbSearch_ClientClicked()" ID="TbSearch" runat="server"></asp:TextBox>
+                                    <asp:Button ID="ButtonSearch" runat="server" Text="Search" Style="display: none;" OnClick="ButtonSearch_Click" />
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <%-- <li>
+                                <asp:Label ID="lblAccountExpired" runat="server"></asp:Label>
+                                <asp:Button ID="btnRenewYourAccount" runat="server" Text="Renew User" OnClick="btnRenewYourAccount_Click"/>
+                            </li>--%>
+                           
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome</span>
+                                <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                            </li>
+
+                            <li>
+                                <a href="<%= Page.ResolveUrl("~/pages/logout.aspx") %>">
+                                    <i class="fa fa-sign-out"></i>Log out
+                                </a>
+                            </li>
+
+                            <li id="Settingslink" runat="server" visible="false">
+                                <a href="<%= Page.ResolveUrl("~/pages/settings.aspx") %>">
+                                    <i class="fa fa-cogs "></i>Settings
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a href="<%= Page.ResolveUrl("~/pages/faq.aspx") %>">
+                                    <i class="fa fa-question-circle"></i>FAQ
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.torilo.co.uk" target="_blank">
+                                <span>
+                                     <img alt="image" class="" src="../../images/favicon.png" />
+                                </span>
+                                 </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+
+                <div class="footer">
+                    <div class="pull-right">
+                        <strong><a href="http://www.iQ.torilo.co.uk"  target="_blank">www.iQ.torilo.co.uk</a></strong>.
+                    </div>
+                    <div>
+                        <asp:Label ID="lblVersion" runat="server"  CssClass="dim"></asp:Label>
+                    </div>
+                    <div>
+                       <a href="../../pages/terms.aspx">Terms  &amp; Copyright  <strong>iQ &copy; 2015-<%= DateTime.Now.Year.ToString() %></strong></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mainly scripts -->
+       <%-- <script src="../../scripts/js/jquery-2.1.1.js"></script>--%>
+        <script src="../../scripts/js/jquery-3.1.1.min.js"></script>
+        <script src="../../scripts/js/bootstrap.min.js"></script>
+        <script src="../../scripts/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="../../scripts/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../../scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+        <!-- Flot -->
+        <script src="../../scripts/js/plugins/flot/jquery.flot.js"></script>
+        <script src="../../scripts/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="../../scripts/js/plugins/flot/jquery.flot.spline.js"></script>
+        <script src="../../scripts/js/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="../../scripts/js/plugins/flot/jquery.flot.pie.js"></script>
+        <script src="../../scripts/js/plugins/flot/jquery.flot.symbol.js"></script>
+        <script src="../../scripts/js/plugins/flot/curvedLines.js"></script>
+
+        <!-- Peity -->
+        <script src="../../scripts/js/plugins/peity/jquery.peity.min.js"></script>
+        <script src="../../scripts/js/demo/peity-demo.js"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="../../scripts/js/custom.js"></script>
+        <script src="../../scripts/js/plugins/pace/pace.min.js"></script>
+
+        <!-- jQuery UI -->
+        <script src="../../scripts/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+        <!-- GITTER -->
+        <script src="../../scripts/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+        <!-- Sparkline -->
+        <script src="../../scripts/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+        <!-- Sparkline demo data  -->
+        <script src="../../scripts/js/demo/sparkline-demo.js"></script>
+
+        <!-- ChartJS-->
+        <script src="../../scripts/js/plugins/chartJs/Chart.min.js"></script>
+
+        <!-- Toastr -->
+        <script src="../../scripts/js/plugins/toastr/toastr.min.js"></script>
+
+
+    </form>
+    <iframe id="KeepAliveFrame" visible="false"  src="KeepSessionAlive.aspx" frameborder="0" width="0" height="0" runat="server"></iframe>
+</body>
+    
+</html>

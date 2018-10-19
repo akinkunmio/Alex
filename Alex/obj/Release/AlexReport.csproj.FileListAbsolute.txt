@@ -1,0 +1,17 @@
+C:\TFS\Alex\Alex\Alex\bin\ReportPay.rdlc
+C:\TFS\Alex\Alex\Alex\bin\Report\EmployeePayslip.rdlc
+C:\TFS\Alex\Alex\Alex\bin\Alex.dll.config
+C:\TFS\Alex\Alex\Alex\bin\Alex.dll
+C:\TFS\Alex\Alex\Alex\bin\Alex.pdb
+C:\TFS\Alex\Alex\Alex\bin\EntityFramework.dll
+C:\TFS\Alex\Alex\Alex\bin\EntityFramework.SqlServer.dll
+C:\TFS\Alex\Alex\Alex\bin\Microsoft.ScriptManager.jQuery.dll
+C:\TFS\Alex\Alex\Alex\bin\Microsoft.ScriptManager.jQuery.UI.Combined.dll
+C:\TFS\Alex\Alex\Alex\bin\Microsoft.ScriptManager.WebForms.dll
+C:\TFS\Alex\Alex\Alex\bin\EntityFramework.xml
+C:\TFS\Alex\Alex\Alex\bin\EntityFramework.SqlServer.xml
+C:\TFS\Alex\Alex\Alex\obj\Release\RdlCompile.cache
+C:\TFS\Alex\Alex\Alex\obj\Release\RdlCompile.compiled
+C:\TFS\Alex\Alex\Alex\obj\Release\Alex.dll
+C:\TFS\Alex\Alex\Alex\obj\Release\Alex.pdb
+C:\TFS\Alex\Alex\Alex\obj\Release\AlexReport.csprojResolveAssemblyReference.cache
